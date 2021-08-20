@@ -1,0 +1,23 @@
+<mat-toolbar color="primary">
+  <ng-container *ngIf="rol != '' ">
+    <button mat-icon-button (click)="onToggleSidenav()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </ng-container>
+    <span>Registro de producto</span>
+    <span class="spacer"></span>
+    <!-- <a *ngIf="rol != '' " mat-button routerLink="/admin">Admin</a> -->
+</mat-toolbar>
+
+<ng-template #viewLogout>
+  <button mat-button [matMenuTriggerFor]="menu">
+    <span>{{ username }}</span>
+    <mat-icon>expand_more</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="onLogout()">
+      <mat-icon>logout</mat-icon>
+      <span>Cerrar sesión</span>
+    </button>
+  </mat-menu>
+</ng-template>

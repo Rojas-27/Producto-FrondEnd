@@ -1,0 +1,61 @@
+<h2 mat-dialog-title>{{ data?.title }}</h2>
+<mat-dialog-content>
+    <form [formGroup]="userForm">
+
+        <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Nombre: </mat-label>
+            <input formControlName="nombre" matInput required>
+            <mat-error>
+                {{ getErrorMessage('nombre') }}
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="full-width"  appearance="outline">
+            <mat-label>Descripcion: </mat-label>
+            <input formControlName="des" matInput required>
+            <mat-error>
+                {{ getErrorMessage('des') }}
+            </mat-error>
+        </mat-form-field>
+         
+        <mat-form-field class="full-width"  appearance="outline">
+            <mat-label>Precio: </mat-label>
+            <input formControlName="precio" matInput required>
+            <mat-error>
+                {{ getErrorMessage('precio') }}
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Agrego</mat-label>
+            <mat-select formControlName="rol">
+                <mat-option *ngFor="let rol of roles" [value]="rol.cveRol">
+                    {{ rol.descripcion }}
+                </mat-option>
+            </mat-select>
+            <mat-error>
+                {{ getErrorMessage('rol') }}
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="full-width"  appearance="outline">
+            <mat-label>Clave De Registro: </mat-label>
+            <input formControlName="cveReg" matInput required>
+            <mat-error>
+                {{ getErrorMessage('cveReg') }}
+            </mat-error>
+        </mat-form-field>
+
+    </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>
+        <mat-icon>cancel</mat-icon>
+        Cancelar
+    </button>
+    <button mat-raised-button color="primary" (click)="onSave()">
+        <mat-icon>save</mat-icon>
+        Guardar
+    </button>
+</mat-dialog-actions>

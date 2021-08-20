@@ -1,0 +1,16 @@
+<mat-nav-list>
+  <a mat-list-item routerLink="/home">
+    <mat-icon>dashboard</mat-icon>
+    <span class="nav-link">Inicio</span>
+  </a>
+
+  <a mat-list-item *ngFor="let menu of lstMenu" [routerLink]="menu.ruta">
+    <mat-icon>{{ menu.icono }}</mat-icon>
+    <span class="nav-link">{{ menu.nombre }}</span>
+  </a>
+
+  <a mat-list-item (click)="onExit()">
+    <mat-icon>logout</mat-icon>
+    <span class="nav-link">Cerrar sesión</span>
+  </a>
+</mat-nav-list>

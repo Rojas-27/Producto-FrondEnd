@@ -1,0 +1,72 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Producto</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="divStyle">
+            <button type="button" mat-raised-button color="primary" style="margin: 2ch;" (click)="onOpenModal()">
+                <mat-icon>add</mat-icon>
+                <span>Agregar</span>
+            </button>
+        </div>
+
+        
+
+          <table mat-table [dataSource]="lstUsers" class="mat-elevation-z8">
+          
+            <!-- Columna nombre -->
+            <ng-container matColumnDef="nombre">
+              <th mat-header-cell *matHeaderCellDef> Nombre </th>
+              <td mat-cell *matCellDef="let user"> {{user.nombre}} </td>
+            </ng-container>
+          
+            
+            <ng-container matColumnDef="des">
+              <th mat-header-cell *matHeaderCellDef> Descripcion </th>
+              <td mat-cell *matCellDef="let user"> {{user.des}} </td>
+            </ng-container>
+           
+            <ng-container matColumnDef="precio">
+              <th mat-header-cell *matHeaderCellDef> Precio </th>
+              <td mat-cell *matCellDef="let user"> {{user.precio}} </td>
+            </ng-container>
+
+            <!-- Columna nombre de usuario -->
+            <ng-container matColumnDef="rol">
+              <th mat-header-cell *matHeaderCellDef> Agrego </th>
+              <td mat-cell *matCellDef="let user"> {{user.rol}} </td>
+            </ng-container>
+          
+            <!-- Columna rol -->
+            <ng-container matColumnDef="cveReg">
+              <th mat-header-cell *matHeaderCellDef> Clave de Registro </th>
+              <td mat-cell *matCellDef="let user"> {{user.cveReg}} </td>
+            </ng-container>
+
+            <!-- Columna Editar -->
+            <ng-container matColumnDef="editar">
+              <th mat-header-cell *matHeaderCellDef> Editar </th>
+              <td mat-cell *matCellDef="let user">
+                <button type="button" mat-icon-button color="primary" (click)="onOpenModal(user)">
+                  <mat-icon>edit</mat-icon>
+                </button>
+              </td>
+            </ng-container>
+
+            <!-- Columna Eliminar -->
+            <ng-container matColumnDef="eliminar">
+              <th mat-header-cell *matHeaderCellDef> Eliminar </th>
+              <td mat-cell *matCellDef="let user">
+                <button mat-icon-button color="warn" (click)="onDelete(user.cvePro)">
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </td>
+            </ng-container>
+          
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+          </table>
+
+    </mat-card-content>
+</mat-card>
